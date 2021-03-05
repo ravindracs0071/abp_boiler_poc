@@ -1,4 +1,5 @@
 # Important
+[Script DB Localization & Validation Rule](https://github.com/ravindracs0071/abp_boiler_poc/blob/main/sql-script/Localization_N_ConfigureRuleScript.sql)
 
 Scenario 1
 [Enable tenant wise DB Localization](https://github.com/ravindracs0071/abp_boiler_poc/blob/main/aspnet-core/src/DemoCompany.DemoProject.Web.Core/DemoProjectWebCoreModule.cs)
@@ -44,7 +45,7 @@ E.g. - In current POC, we are validating email address based on tenant based con
 ![](_screenshots/Multi_Tenant_Configuration.png)
 
 #### 
-![](_screenshots/Tenant_wise_validation_rule_for_email_property)
+![](_screenshots/Tenant_wise_validation_rule_for_email_property.png)
 
 # Documentation
 
