@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using Abp.FluentValidation;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using DemoCompany.DemoProject.Authorization;
@@ -7,7 +8,8 @@ namespace DemoCompany.DemoProject
 {
     [DependsOn(
         typeof(DemoProjectCoreModule), 
-        typeof(AbpAutoMapperModule))]
+        typeof(AbpAutoMapperModule),
+        typeof(AbpFluentValidationModule))]
     public class DemoProjectApplicationModule : AbpModule
     {
         public override void PreInitialize()

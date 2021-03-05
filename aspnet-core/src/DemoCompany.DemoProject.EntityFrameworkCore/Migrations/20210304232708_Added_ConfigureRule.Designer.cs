@@ -4,14 +4,16 @@ using DemoCompany.DemoProject.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DemoCompany.DemoProject.Migrations
 {
     [DbContext(typeof(DemoProjectDbContext))]
-    partial class DemoProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210304232708_Added_ConfigureRule")]
+    partial class Added_ConfigureRule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
