@@ -2,8 +2,10 @@ using System.ComponentModel.DataAnnotations;
 using Abp.Auditing;
 using Abp.Authorization.Users;
 using Abp.AutoMapper;
+using Abp.Dependency;
 using Abp.Runtime.Validation;
 using DemoCompany.DemoProject.Authorization.Users;
+using FluentValidation;
 
 namespace DemoCompany.DemoProject.Users.Dto
 {
@@ -43,5 +45,30 @@ namespace DemoCompany.DemoProject.Users.Dto
                 RoleNames = new string[0];
             }
         }
+    }
+
+    #region Tenant Wise Configure Rule Validation
+
+    public class CreateUserDtoFluentValidator : AbstractValidator<CreateUserDto>
+    {
+        public CreateUserDtoFluentValidator()
+        {
+            var configureRuleService = IocManager.Instance.Resolve<ConfigureRule.IConfigureRuleAppService>();
+            //Same property to be configured in DB with Expression Table name : ConfigureRule
+            var EmailAddressValidationRule = configureRuleService.GetEntityByRuleForProperty(CreateUserDtoConsts.RuleForProperty)?.SyntaxForProperty;
+
+            if (!string.IsNullOrEmpty(EmailAddressValidationRule)) 
+                RuleFor(x => x.EmailAddress).Matches(EmailAddressValidationRule);
+        }
+    }
+
+    #endregion
+
+    public class CreateUserDtoConsts
+    {
+        /// <summary>
+        /// Same property to be configured in DB with Expression Table name : ConfigureRule
+        /// </summary>
+        public const string RuleForProperty = "Abp.Tenant.User.EmailAddress.RegEx";
     }
 }

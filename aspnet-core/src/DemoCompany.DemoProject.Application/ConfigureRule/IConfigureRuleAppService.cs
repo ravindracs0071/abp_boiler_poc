@@ -16,5 +16,7 @@ namespace DemoCompany.DemoProject.ConfigureRule
         Task<ConfigureRuleDto> GetAsync(EntityDto<long> input);
         
         Task<long> UpdateAsync(EditConfigureRuleDto input);
+
+        ConfigureRule GetEntityByRuleForProperty(string ruleForProperty);
     }
 }

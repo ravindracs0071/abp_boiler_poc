@@ -1,0 +1,68 @@
+<form
+  class="form-horizontal"
+  autocomplete="off"
+  #editConfigureRuleForm="ngForm"
+  (ngSubmit)="save()"
+>
+  <abp-modal-header
+    [title]="'EditConfigureRule' | localize"
+    (onCloseClick)="bsModalRef.hide()"
+  ></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'Details' | localize" class="pt-3 px-2">
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="ruleForProperty">
+            {{ "RuleForProperty" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="ruleForProperty"
+              id="ruleForProperty"
+              required
+              minlength="5"
+              maxlength="1000"
+              [(ngModel)]="ConfigureRule.ruleForProperty"
+              #ruleForPropertyModel="ngModel"
+              #ruleForPropertyEl
+            />
+            <abp-validation-summary
+            [control]="ruleForPropertyModel"
+            [controlEl]="ruleForPropertyEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="syntaxForProperty">
+            {{ "SyntaxForProperty" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="syntaxForProperty"
+              id="syntaxForProperty"
+              required
+              minlength="5"
+              maxlength="1000"
+              [(ngModel)]="ConfigureRule.syntaxForProperty"
+              #syntaxForPropertyModel="ngModel"
+              #syntaxForPropertyEl
+            />
+            <abp-validation-summary
+              [control]="syntaxForPropertyModel"
+              [controlEl]="syntaxForPropertyEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!editConfigureRuleForm.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>

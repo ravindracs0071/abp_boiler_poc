@@ -38,6 +38,10 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
+// configure rule
+import { ConfigureRulesComponent } from "@app/configurerules/configurerules.component";
+import { CreateConfigureRuleDialogComponent } from "@app/configurerules/create-configurerule/create-configurerule-dialog.component";
+import { EditConfigureRuleDialogComponent } from "@app/configurerules/edit-configurerule/edit-configurerule-dialog.component";;
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
     SidebarComponent,
     SidebarLogoComponent,
     SidebarUserPanelComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    //configurerule
+    ConfigureRulesComponent,
+    CreateConfigureRuleDialogComponent,
+    EditConfigureRuleDialogComponent
   ],
   imports: [
     CommonModule,

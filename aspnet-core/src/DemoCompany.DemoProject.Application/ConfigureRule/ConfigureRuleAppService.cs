@@ -121,5 +121,17 @@ namespace DemoCompany.DemoProject.ConfigureRule
             var configureRule = await _configRuleRepository.GetAsync(input.Id);
             return ObjectMapper.Map<ConfigureRuleDto>(configureRule);
         }
+
+        public ConfigureRule GetEntityByRuleForProperty(string ruleForProperty)
+        {
+            var configureRule = _configRuleRepository.GetAll().FirstOrDefault(x => x.RuleForProperty == ruleForProperty);
+
+            if (configureRule == null)
+            {
+                return null;
+            }
+
+            return configureRule;
+        }
     }
 }
